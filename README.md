@@ -4,7 +4,7 @@ Keycloak Sniper - Ferramenta de Testes de Vulnerabilidades
 
 O Keycloak-Sniper é uma ferramenta desenvolvida em Python 3 para realizar testes de segurança em implementações do Keycloak, uma plataforma de gerenciamento de identidade e acesso (IAM - Identity and Access Management). 
 
-O script executa uma série de testes para verificar a presença de vulnerabilidades conhecidas, como XSS, SSRF e outras, além de possibilitar a enumeração de dados sensíveis e a verificação de exposições de segurança.
+O script executa uma série de testes para verificar a presença de vulnerabilidades conhecidas, como XSS, SSRF e outras, além de possibilitar a enumeração de keycloaks ativos e secretkey expostas.
 
 Atenção: Antes de executar este script, garanta que você tem permissão para testar o ambiente. O uso não autorizado pode ser considerado ilegal.
 
