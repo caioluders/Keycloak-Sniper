@@ -11,12 +11,12 @@ Atenção: Antes de executar este script, garanta que você tem permissão para 
 Funcionalidades
 O Keycloak-Sniper suporta os seguintes testes:
 
-Localizar Realms: Localiza os nomes dos realms de uma instância do Keycloak.
-Enumeração de IDs de Clientes: Enumera os IDs de clientes registrados em um realm específico.
-Testar Acesso aos Clientes: Verifica se há acesso a dados sensíveis dos clientes.
-Testar Vulnerabilidade CVE-2020-27838: Verifica a exposição de secretos de client_id e client_secret.
-Testar Vulnerabilidade CVE-2021-20323 (XSS): Verifica vulnerabilidades de Cross-Site Scripting (XSS) no protocolo OpenID Connect e na configuração padrão.
-Verificar Vulnerabilidade CVE-2020-10770 (SSRF): Testa a vulnerabilidade SSRF que pode permitir o acesso a servidores internos.
+- Localizar Realms: Localiza os nomes dos realms de uma instância do Keycloak.
+- Enumeração de IDs de Clientes: Enumera os IDs de clientes registrados em um realm específico.
+- Testar Acesso aos Clientes: Verifica se há acesso a dados sensíveis dos clientes.
+- Testar Vulnerabilidade CVE-2020-27838: Verifica a exposição de secretos de client_id e client_secret.
+- Testar Vulnerabilidade CVE-2021-20323 (XSS): Verifica vulnerabilidades de Cross-Site Scripting (XSS) no protocolo OpenID Connect e na configuração padrão.
+- Verificar Vulnerabilidade CVE-2020-10770 (SSRF): Testa a vulnerabilidade SSRF que pode permitir o acesso a servidores internos.
 
 ```
 Instalação
