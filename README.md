@@ -41,6 +41,7 @@ Opções
 -f - Testa a vulnerabilidade CVE-2021-20323 (XSS) na configuração padrão
 -g - Verifica vulnerabilidade CVE-2020-10770: SSRF
 -h - Exibe a ajuda (help)
+
 Parâmetros Obrigatórios
 --url - Define a URL base do Keycloak (ex.: https://example.com).
 --realms - Define o caminho para o arquivo contendo a lista de realms a serem testados.
