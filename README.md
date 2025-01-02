@@ -22,6 +22,8 @@ Verificar Vulnerabilidade CVE-2020-10770 (SSRF): Testa a vulnerabilidade SSRF qu
 Instalação
 Certifique-se de ter o Python 3 instalado em sua máquina. Você pode instalar as dependências necessárias com:
 
+sudo apt install python3-venv python3
+
 python3 -m venv venv
 
 source venv/bin/activate
