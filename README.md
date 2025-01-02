@@ -15,7 +15,8 @@ Testar Acesso aos Clientes: Verifica se há acesso a dados sensíveis dos client
 Testar Vulnerabilidade CVE-2020-27838: Verifica a exposição de secretos de client_id e client_secret.
 Testar Vulnerabilidade CVE-2021-20323 (XSS): Verifica vulnerabilidades de Cross-Site Scripting (XSS) no protocolo OpenID Connect e na configuração padrão.
 Verificar Vulnerabilidade CVE-2020-10770 (SSRF): Testa a vulnerabilidade SSRF que pode permitir o acesso a servidores internos.
-Como Usar
+
+```
 Instalação
 Certifique-se de ter o Python 3 instalado em sua máquina. Você pode instalar as dependências necessárias com:
 
@@ -58,6 +59,8 @@ python3 Keycloak-Sniper.py -a -b -d --url https://example.com --realms realms.tx
 ou
 
 python3 Keycloak-Sniper.py -abcdef --url https://example.com --realms realms.txt
+```
+
 
 Avisos de Uso
 Este script foi desenvolvido para testar a segurança de instâncias Keycloak. Utilize-o com responsabilidade e somente em ambientes que você tem autorização para testar.
