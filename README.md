@@ -20,6 +20,10 @@ Verificar Vulnerabilidade CVE-2020-10770 (SSRF): Testa a vulnerabilidade SSRF qu
 Instalação
 Certifique-se de ter o Python 3 instalado em sua máquina. Você pode instalar as dependências necessárias com:
 
+python3 -m venv venv
+
+source venv/bin/activate
+
 pip install -r requirements.txt
 
 python3 Keycloak-Sniper.py [opções] --url <url> --realms <arquivo_de_realms>
