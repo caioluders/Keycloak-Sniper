@@ -77,3 +77,10 @@ Este script foi desenvolvido para testar a segurança de instâncias Keycloak. U
 O script foi desenvolvido e testado por Carlos Tuma (Bl4dsc4n), versão 0.1.
 
 ![image](https://github.com/user-attachments/assets/9d4904b5-d4ea-429c-b03d-d39847fec96d)
+
+https://nvd.nist.gov/vuln/detail/CVE-2020-27838
+
+https://nvd.nist.gov/vuln/detail/CVE-2021-20323
+
+https://nvd.nist.gov/vuln/detail/CVE-2020-10770
+
