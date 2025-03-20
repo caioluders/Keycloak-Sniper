@@ -196,40 +196,48 @@ def main(argv):
     hook_argument = ""
 
     try:
-        opts, args = getopt.getopt(argv, "abcdefgh", ["url=", "realms=", "hook="])
+        opts, args = getopt.getopt(argv, "abcdefgh", ["url=", "realms=", "hook=", "all"])
         for opt, arg in opts:
             if opt == "--url":
                 url = arg
+                if "/auth/" in url:
+                    realm_input = url.split("/auth/realms/")[1].split("/")[0]
+                    url = url.split("/auth/realms/")[0]
             elif opt == "--realms":
                 realms_file = arg
             elif opt == "--hook":
                 hook_argument = arg
 
-        if not realms_file or not url:
+        if not (realms_file or realm_input) or not url:
             exibir_banner()
             sys.exit(2)
 
-        with open(realms_file) as f:
-            realms = [line.strip() for line in f]
+        if realms_file: 
+            with open(realms_file) as f:
+                realms = [line.strip() for line in f]
+        else:
+            realms = [realm_input]
+
+        print(f"Realms: {realms}")
 
         for opt, _ in opts:
             if opt == "-a":
-                print("<URL>/auth/realms/<realm-name>")
+                print(f"{url}/auth/realms/<realm-name>")
                 execute_in_threads(url, realms, funcao1_thread)
             elif opt == "-b":
-                print("<URL>/auth/realms/<realm-name>/protocol/openid-connect/auth?client_id=account")
+                print(f"{url}/auth/realms/<realm-name>/protocol/openid-connect/auth?client_id=account")
                 execute_in_threads(url, realms, funcao2_thread)
             elif opt == "-c":
-                print("<URL>/admin/realms/<realm-name>/clients")
+                print(f"{url}/admin/realms/<realm-name>/clients")
                 execute_in_threads(url, realms, funcao3_thread)
             elif opt == "-d":
-                print("<URL>/auth/realms/<realm-name>/clients-registrations/default/security-admin-console")
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/default/security-admin-console")
                 execute_in_threads(url, realms, funcao4_thread)
             elif opt == "-e":
-                print(f"<URL>/auth/realms/<realm-name>/clients-registrations/openid-connect")
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/openid-connect")
                 execute_in_threads(url, realms, funcao5_thread)
             elif opt == "-f":
-                print(f"<URL>/auth/realms/<realm-name>/clients-registrations/default")
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/default")
                 execute_in_threads(url, realms, funcao6_thread)
             elif opt == "-g":
                 if not hook_argument:
@@ -239,6 +247,27 @@ def main(argv):
                 results = check_cve_2020_10770(url, realms, hook_argument)
                 for result in results:
                     print(result)
+            elif opt == "--all":
+                print(f"{url}/auth/realms/<realm-name>")
+                execute_in_threads(url, realms, funcao1_thread)
+                print(f"{url}/auth/realms/<realm-name>/protocol/openid-connect/auth?client_id=account")
+                execute_in_threads(url, realms, funcao2_thread)
+                print(f"{url}/admin/realms/<realm-name>/clients")
+                execute_in_threads(url, realms, funcao3_thread)
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/default/security-admin-console")
+                execute_in_threads(url, realms, funcao4_thread)
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/openid-connect")
+                execute_in_threads(url, realms, funcao5_thread)
+                print(f"{url}/auth/realms/<realm-name>/clients-registrations/default")
+                execute_in_threads(url, realms, funcao6_thread)
+
+                if not hook_argument:
+                    print("Erro: O argumento --hook é obrigatório.")
+                    sys.exit(2)
+                print(f"Testando Realms para CVE-2020-10770 com argumento '{hook_argument}' para {{hook}}")
+                results = check_cve_2020_10770(url, realms, hook_argument)
+                for result in results:
+                    print(result)         
             elif opt == "-h":
                 exibir_banner()
                 sys.exit(0)
